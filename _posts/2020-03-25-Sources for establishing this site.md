@@ -23,3 +23,8 @@ BTW, I setup the GitHub Pages with theme "minama" at first, but I think there is
 * Custom your font 
   * [Reddit - Jekyll custom fonts](https://www.reddit.com/r/Jekyll/comments/83o680/jekyll_custom_fonts/)
   * [dirk lüsebrink - Google Webfonts for my Jekyll](http://sebrink.de/Google-Webfonts-for-my-Jekyll/)
+
+## Categories and Tags
+* [在jekyll blog的文章內加入新tag](https://ithelp.ithome.com.tw/articles/10210700)
+* [3 Simple steps to setup Jekyll Categories and Tags](https://blog.webjeda.com/jekyll-categories/)
+I use the secend way in final.

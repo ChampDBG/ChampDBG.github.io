@@ -8,3 +8,5 @@ github:
   post: /
   about: /about
   resume: /resume
+
+permalink: /:categories/:title/
