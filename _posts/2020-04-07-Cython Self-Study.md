@@ -1,19 +1,23 @@
 ---
 layout: post
 title: "Cython self-Learning"
-date: 2020-04-06 21:00:00 +0900
-categories: [program, Python, self-learning]
+date: 2020-04-07 21:00:00 +0900
+categories: [program, Python, Cython, self-learning]
 ---
 Every Python user may hear that "Python is slower than other language (ex: C, C++, JAVA...)". There are three main theories to explain 
 
 * Python is a dynamically typed language
+
 * GIL (Global Interpreter Lock) [[1](https://realpython.com/python-gil/)]
+
 * Its interpreted and not compiled
 
 I want to survey the first point and recording the following items in this article.
 
 * Why Python is slow from dynmically typed language view
+
 * How slow is it?
+
 * Future work
 
 ## Why Python is slow from dynmically typed language view
@@ -113,29 +117,31 @@ the average result is 0.04952403199998571
 ![](/img/20200406_Speed Comparison Fibonacci.png)
 
 With the above figure, we can find some interesting things.
+
 * the fastest of Python still slower than the slowest of Cython two time.
+
 * naive Cython can make speed faster, but still have difference to Cython.
 
 I think the above experiment can prove that Cython can have better performance than Python. Therefore, we move to project part.
 
 ### Project Comparison - cliffwalk
-The cliffwalk is a famous to show the policy difference between SARSA and Q-Learning. If you are interested about it, there is more information in Richard S. Sutton's book [7]. I used the script at here and got an interested result.
+The cliffwalk is a famous to show the policy difference between SARSA and Q-Learning. If you are interested about it, there is more information in Richard S. Sutton's book [7]. I used the script at [[here](https://github.com/ChampDBG/PlayGround/tree/master/cython/cliffwalk)] and got an interested result.
 
 ```
 ========== pure python   ==========
-Record 30 times of executing cliffwalk 10 times
+Record 30 times of executing cliffwalk 3 times
 100%|█████████████████████████████████| 30/30 [01:22<00:00,  2.76s/it]
 the fastest result is 2.2803960000019288
 the slowest result is 5.677785399995628
 the average result is 2.7626423766661903
 ========== naive cython   ==========
-Record 30 times of executing cliffwalk 10 times
+Record 30 times of executing cliffwalk 3 times
 100%|█████████████████████████████████| 30/30 [01:14<00:00,  2.48s/it]
 the fastest result is 2.4429823999962537
 the slowest result is 2.5304086999967694
 the average result is 2.4771759099986714
 ========== cython   ==========
-Record 30 times of executing cliffwalk 10 times
+Record 30 times of executing cliffwalk 3 times
 100%|█████████████████████████████████| 30/30 [01:20<00:00,  2.68s/it]
 the fastest result is 2.629339799997979
 the slowest result is 2.776731000005384
@@ -154,10 +160,11 @@ According to the result, I maybe can said that Cython version is more stable tha
 
 ## Future work
 1. Explain the result of cliffwalk
+
 2. Get Deeper - release GIL in Cython [[10](https://cython.readthedocs.io/en/latest/src/userguide/parallelism.html)]
 
 ## Reference
-[1] What is Python Global Interpreter Lock(GIL)? [[Link](https://realpython.com/python-gil/)]
+[1] What is Python Global Interpreter Lock(GIL)? [[link](https://realpython.com/python-gil/)]
 
 [2] How come statically typed languages perform much better than dynamic ones? [[link](https://www.quora.com/How-come-statically-typed-languages-perform-much-better-than-dynamic-ones)]
 
@@ -175,7 +182,9 @@ According to the result, I maybe can said that Cython version is more stable tha
 
 [9] Cython 基本用法 [[link](https://zhuanlan.zhihu.com/p/24311879)]
 
-[10] Releasing from GIL in Cython [[Link](https://cython.readthedocs.io/en/latest/src/userguide/parallelism.html)]
-#### other
+[10] Releasing from GIL in Cython [[link](https://cython.readthedocs.io/en/latest/src/userguide/parallelism.html)]
+
+### Extension Reading
 * Why is Python so slow? [[link](https://hackernoon.com/why-is-python-so-slow-e5074b6fe55b)]
+
 * Magic lies here - Statically vs Dynamically Typed Languages[[link](https://android.jlelse.eu/magic-lies-here-statically-typed-vs-dynamically-typed-languages-d151c7f95e2b)]
