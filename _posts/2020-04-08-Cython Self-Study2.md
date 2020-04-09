@@ -4,7 +4,7 @@ title: "Cython self-Learning (2)"
 date: 2020-04-08 21:00:00 +0900
 categories: [program, Python, Cython, self-learning]
 ---
-> If you haven't seen the previous [article](https://champdbg.github.io/program/python/self-learning/Cython-Self-Study/), it is better to read it before you read this article.
+> If you haven't seen the previous [article](https://champdbg.github.io/program/python/cython/self-learning/Cython-Self-Study/), it is better to read it before you read this article.
 
 In this article, I tried to prove my explaination, the reason why my Cython script did so bad, in last article and I found this words.
 
@@ -34,23 +34,23 @@ With these material, I start to modify my script and the new one is [[here](http
 With the refined script, I got the reasonable result.
 ``` 
 ========== pure python ==========
-Record 30 times of executing cliffwalk 10000 times
-100%|█████████████████████████████████| 30/30 [01:16<00:00,  2.56s/it]
-the fastest result is 2.49276049999753
-the slowest result is 2.7365158000029624
-the average result is 2.561008576666548
+Record 30 times of executing cliffwalk 3000 times
+100%|█████████████████████████████████| 30/30 [00:50<00:00,  1.69s/it]
+the fastest result is 1.5165109999943525
+the slowest result is 3.2652387999987695
+the average result is 1.6859406133327866
 ========== naive cython   ==========
-Record 30 times of executing cliffwalk 10000 times
-100%|█████████████████████████████████| 30/30 [01:15<00:00,  2.51s/it]
-the fastest result is 2.460107799997786
-the slowest result is 2.663891300006071
-the average result is 2.507228383331191
+Record 30 times of executing cliffwalk 3000 times
+100%|█████████████████████████████████| 30/30 [00:49<00:00,  1.65s/it]
+the fastest result is 1.5883004000061192
+the slowest result is 1.838901100010844
+the average result is 1.6543756700023853
 ========== cython   ==========
-Record 30 times of executing cliffwalk 10000 times
-100%|█████████████████████████████████| 30/30 [01:11<00:00,  2.38s/it]
-the fastest result is 2.28368199999386
-the slowest result is 2.5513320000027306
-the average result is 2.3749481600005917
+Record 30 times of executing cliffwalk 3000 times
+100%|█████████████████████████████████| 30/30 [00:24<00:00,  1.21it/s]
+the fastest result is 0.7837197999760974
+the slowest result is 0.8648693999857642
+the average result is 0.8234472199973728
 ```
 ![](/img/20200408_Speed Comparison cliffwalk_v2.png)
 
