@@ -40,9 +40,10 @@ Actually, I have no idea about why performance get worse so much, so I use cytho
 $ cython -a ./cy_cliffwalk.pyx
 ```
 
-and it will generate a html file, [here]() is a sample. After open the html, there are some lines were highlighted. It means that cython and python interact at this line. In other word, there are the places that may make your script slow down, so it is better to turn them into to Cython version. 
+and it will generate a html file. After open the html, there are some lines were highlighted. It means that cython and python interact at this line. In other word, there are the places that may make your script slow down, so it is better to turn them into to Cython version. 
+![](/img/20200410_Interacting Place.png)
 
-I did lots of accesses from the array, using memroyview may be a better choice [[4](https://stackoverflow.com/questions/50086564/cython-index-should-be-typed-for-more-efficient-access)]. Therefore, I modified the class script with memoryview's tutorial [[5](http://docs.cython.org/en/latest/src/userguide/memoryviews.html)] [[6](https://docs.python.org/3/library/struct.html#format-characters)], revised the declaration of related variables and remove some numpy function to buildin function. There is the [new version]().
+I did lots of accesses from the array, using memroyview may be a better choice [[4](https://stackoverflow.com/questions/50086564/cython-index-should-be-typed-for-more-efficient-access)]. Therefore, I modified the class script with memoryview's tutorial [[5](http://docs.cython.org/en/latest/src/userguide/memoryviews.html)] [[6](https://docs.python.org/3/library/struct.html#format-characters)], revised the declaration of related variables and remove some numpy function to buildin function. There is the [new version](https://github.com/ChampDBG/PlayGround/blob/master/cython/cliffwalk_v3/cy_cliffwalk_v2.pyx).
 
 ## Project Comparison - cliffwalk_v3.2
 ```
@@ -66,7 +67,7 @@ the slowest result is 0.9498729000333697
 the average result is 0.8884332499990706
 ```
 ![](/img/20200410_Speed Comparison cliffwalk_v3.2.png)
-I look better now, but still have a little distance to function version. I tried to simpify some unnecessary part in class version and there is the [version 3]().
+I look better now, but still have a little distance to function version. I tried to simpify some unnecessary part in class version and there is the [version 3](https://github.com/ChampDBG/PlayGround/blob/master/cython/cliffwalk_v3/cy_cliffwalk_v3.pyx).
 
 ## Project Comparison - cliffwalk_v3.3
 ```
