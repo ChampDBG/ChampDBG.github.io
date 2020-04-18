@@ -33,16 +33,16 @@ $ ssh -D 8080 -p 9527 user@my.host.org
 ### 設定網路 
 1. 打開「網際網路選項」，選擇「連線」、「LAN 設定」(拍謝，我只能提供日文圖片，但應該沒什麼差)
    
-   <img src="/img/20200417_internet_option.png" width = "50%" height = "50%" align=center />
+   <img src="/img/20200417_internet_option.png" width = "270" height = "370" align=center />
 
 
 2. 接著打勾「自動偵測設定」、「為您的 LAN 使用 Proxy 伺服器...」、「進階」
    
-   <img src="/img/20200417_internet_option_2.png" width = "50%" height = "50%" align=center />
+   <img src="/img/20200417_internet_option_2.png" width = "250" height = "255" align=center />
 
 3. 輸入 socks 的內容
    
-   <img src="/img/20200417_internet_option3.png" width = "50%" height = "50%" align=center />
+   <img src="/img/20200417_internet_option3.png" width = "260" height = "325" align=center />
 
 設定完成之後，只要打開瀏覽器(Chrome, Firefox) 即可使用。
 
