@@ -8,7 +8,7 @@ categories: [program, Python, Cython, self-learning]
 
 Yesterday, I found there is a discussion [[1](https://stackoverflow.com/questions/49090448/how-can-i-use-cython-to-speed-up-the-numpy)] implies the possibility to speed up more in Cython with class. Therefore, I wrote a class version for cliffwalk.
 
-I refered tutroial [[2](https://cython.readthedocs.io/en/latest/src/tutorial/cdef_classes.html)] and Dr. Stefan Behnel's slide [[3](http://www.behnel.de/cython200910/talk.html)] to program and the class version of cliffwalk is [[here](https://github.com/ChampDBG/PlayGround/tree/master/cython/cliffwalk_v3)]. There is a extra function (exec_cliffwalk) in the cy_cliffwalk.pyx for easy to call from outside and here is the result.
+I refer tutroial [[2](https://cython.readthedocs.io/en/latest/src/tutorial/cdef_classes.html)] and Dr. Stefan Behnel's slide [[3](http://www.behnel.de/cython200910/talk.html)] and program the class version of cliffwalk is [[here](https://github.com/ChampDBG/PlayGround/tree/master/cython/cliffwalk_v3)]. There is a extra function (exec_cliffwalk) in the cy_cliffwalk.pyx for easy to call from outside. Let's observe the result.
 
 ## Project Comparison - cliffwalk_v3
 ``` 
@@ -33,7 +33,7 @@ the average result is 1.3261936766687237
 ```
 ![](/img/20200410_Speed Comparison cliffwalk_v3.png)
 
-Although Cython version is still the fastest　one, we got worse performance than yesterday (average 0.82). Comparing to yesterday, there is no siginficant performance difference in Python version (average 1.68) and naive Cython version (average 1.65).
+Although Cython version is still the fastest one, we got worse performance than function version (average 0.82). Comparing to function, there is no siginficant performance difference in Python version (average 1.68) and naive Cython version (average 1.65).
 
 Actually, I have no idea about why performance get worse so much, so I use cython buildin function to observe where may can modify. With the following command
 ```bash
@@ -43,7 +43,7 @@ $ cython -a ./cy_cliffwalk.pyx
 and it will generate a html file. After open the html, there are some lines were highlighted. It means that cython and python interact at this line. In other word, there are the places that may make your script slow down, so it is better to turn them into to Cython version. 
 ![](/img/20200410_Interacting Place.png)
 
-I did lots of accesses from the array, using memroyview may be a better choice [[4](https://stackoverflow.com/questions/50086564/cython-index-should-be-typed-for-more-efficient-access)]. Therefore, I modified the class script with memoryview's tutorial [[5](http://docs.cython.org/en/latest/src/userguide/memoryviews.html)] [[6](https://docs.python.org/3/library/struct.html#format-characters)], revised the declaration of related variables and remove some numpy function to buildin function. There is the [new version](https://github.com/ChampDBG/PlayGround/blob/master/cython/cliffwalk_v3/cy_cliffwalk_v2.pyx).
+I did lots of accesses from the array, using memroyview may be a better choice [[4](https://stackoverflow.com/questions/50086564/cython-index-should-be-typed-for-more-efficient-access)]. Therefore, I modified the class script with memoryview's tutorial [[5](http://docs.cython.org/en/latest/src/userguide/memoryviews.html)] [[6](https://docs.python.org/3/library/struct.html#format-characters)], revised the declaration of related variables and replaced some numpy function to buildin function. There is the [new version](https://github.com/ChampDBG/PlayGround/blob/master/cython/cliffwalk_v3/cy_cliffwalk_v2.pyx).
 
 ## Project Comparison - cliffwalk_v3.2
 ```
@@ -67,7 +67,7 @@ the slowest result is 0.9498729000333697
 the average result is 0.8884332499990706
 ```
 ![](/img/20200410_Speed Comparison cliffwalk_v3.2.png)
-I look better now, but still have a little distance to function version. I tried to simpify some unnecessary part in class version and there is the [version 3](https://github.com/ChampDBG/PlayGround/blob/master/cython/cliffwalk_v3/cy_cliffwalk_v3.pyx).
+It looks better, but still have a little distance to function version. I tried to simpify some unnecessary part in class version and there is the [version 3](https://github.com/ChampDBG/PlayGround/blob/master/cython/cliffwalk_v3/cy_cliffwalk_v3.pyx).
 
 ## Project Comparison - cliffwalk_v3.3
 ```
