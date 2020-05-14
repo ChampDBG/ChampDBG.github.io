@@ -11,8 +11,11 @@ categories: [program, daily]
 
 ## 事前準備
 * 當作跳版的 server
+
 * 建立 ssh 連線的工具
+  
   * Windows 用戶可能是 [PuTTY](https://www.putty.org), [MobaXterm](https://mobaxterm.mobatek.net/), 或 [WSL](https://blog.miniasp.com/post/2019/02/01/Useful-tool-WSL-Windows-Subsystem-for-Linux)，我自己是用 WSL。
+  
   * Linux 用戶使用 bash 的 ssh 即可
 
 ## 實現方法
@@ -22,6 +25,7 @@ categories: [program, daily]
 $ ssh -D 8080 user@my.host.org
 ```
 > * user 輸入使用者名字
+>
 > * my.host.ort 輸入 server IP
 
 如果有 port 的話再自己加上去，例如
@@ -33,16 +37,16 @@ $ ssh -D 8080 -p 9527 user@my.host.org
 ### 設定網路 
 1. 打開「網際網路選項」，選擇「連線」、「LAN 設定」(拍謝，我只能提供日文圖片，但應該沒什麼差)
    
-   <img src="/img/20200417_internet_option.png" width = "270" height = "370" align=center />
+   ![](/img/20200417_internet_option.png)
 
 
 2. 接著打勾「自動偵測設定」、「為您的 LAN 使用 Proxy 伺服器...」、「進階」
    
-   <img src="/img/20200417_internet_option_2.png" width = "250" height = "255" align=center />
+   ![](/img/20200417_internet_option_2.png)
 
 3. 輸入 socks 的內容
    
-   <img src="/img/20200417_internet_option3.png" width = "260" height = "325" align=center />
+   ![](/img/20200417_internet_option3.png)
 
 設定完成之後，只要打開瀏覽器(Chrome, Firefox) 即可使用。
 
